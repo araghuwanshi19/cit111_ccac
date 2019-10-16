@@ -10,7 +10,7 @@ import java.util.Scanner;
  *
  * @author abhilasha.raghuwansh
  */
-public class loopingRectangles {
+public class LoopingRightTriangle {
     public static void main(String[]args){
         Scanner inputScanner = new Scanner(System.in);
         int rowCount;
