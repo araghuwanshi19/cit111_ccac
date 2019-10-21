@@ -27,7 +27,7 @@ public class Triangle {
             }
             
           spaceMax--;
-          stars = stars + 2;
+          numStars = numStars + 2;
          
         }//closes while
     }//closes main

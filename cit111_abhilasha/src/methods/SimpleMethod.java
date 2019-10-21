@@ -8,6 +8,7 @@ package methods;
 import java.util.Random;
 import java.math.BigInteger;
 import java.util.Scanner;
+
 /**
  *
  * @author abhilasha.raghuwansh
@@ -59,7 +60,7 @@ public static void main (String[] args){
     else{
         System.out.println("Invalid options");
     }//close if/else block
-    
+   
 } //close main
 
 public static void printStatement(){
