@@ -18,32 +18,16 @@ public class PurchaseCalculator {
         System.out.println("Enter Item Price:");
         double item_price = input.nextInt();
         
-        
         System.out.println("Enter spending limit:");
         int inputLimit = input.nextInt();
         displayPurchasableNumber(item_price,inputLimit);
         
-        displayTotalPrice(item_price);
-
     }//close method main
-    
-    public static void displayTotalPrice(double price){
-        final double TAX_RATE = 0.075;
-        double totalPrice = price * (1 + TAX_RATE);
-        System.out.println("Total price with tax: $" + totalPrice);
-        
-        computePriceAfterDiscount(totalPrice, 0.15);
-    }//close method displayPriceWithTax
-    
-    public static void computePriceAfterDiscount(double price, double discount){
-        double finalPrice = price - (price * discount); 
-        System.out.println("Price after discount: $" + finalPrice);
-    }// close method computePriceAfterDiscount
     
     public static void displayPurchasableNumber(double price, double limit){
         Scanner input = new Scanner(System.in);
         int numPurchasable = (int) Math.floor(limit / price);
-        System.out.println("With $" + price + " you can buy " + numPurchasable + " units");
+        System.out.println("With $" + limit + " you can buy " + numPurchasable + " units");
         System.out.println("How many units of this item would you like to purchase?");
         int desiredUnit = input.nextInt();
         computeItemPrice(price, desiredUnit);
@@ -52,4 +36,18 @@ public class PurchaseCalculator {
     public static void computeItemPrice(double item_price, double unit){
         double price = item_price * unit;
     }// close method computePrice
+    
+    public static void displayPriceWithTax(double price){
+        final double TAX_RATE = 0.075;
+        double totalPrice = price * (1 + TAX_RATE);
+        System.out.println("Total price with tax: $" + totalPrice);
+       
+        computePriceAfterDiscount(totalPrice, 0.15);
+    }//close method displayPriceWithTax
+    
+    public static void computePriceAfterDiscount(double price, double discount){
+        double finalPrice = price - (price * discount); 
+        System.out.println("Price after discount: $" + finalPrice);
+    }// close method computePriceAfterDiscount
+
 }//close class
