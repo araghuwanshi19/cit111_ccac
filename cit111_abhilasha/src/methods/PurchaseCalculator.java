@@ -35,6 +35,8 @@ public class PurchaseCalculator {
     
     public static void computeItemPrice(double item_price, double unit){
         double price = item_price * unit;
+         
+        displayPriceWithTax(price);
     }// close method computePrice
     
     public static void displayPriceWithTax(double price){
