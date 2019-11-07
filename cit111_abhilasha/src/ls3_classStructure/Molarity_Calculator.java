@@ -146,7 +146,56 @@ public class Molarity_Calculator {
         eleMap.put("Uub", 277.00);
 
         HashMap<String , Double> eleSubMap = new HashMap<>();
-        
+        eleMap.put("H1", 1.00797);
+        eleMap.put("H2", 2.01594);
+        eleMap.put("H3", 1.00797);
+        eleMap.put("H4", 1.00797);
+        eleMap.put("H5", 1.00797);
+        eleMap.put("H6", 1.00797);
+        eleMap.put("H7", 1.00797);
+        eleMap.put("H8", 1.00797);
+        eleMap.put("H9", 1.00797);
+        eleMap.put("H10", 1.00797);
+        eleMap.put("H11", 1.00797);
+        eleMap.put("H12", 1.00797);
+        eleMap.put("H13", 1.00797);
+        eleMap.put("H14", 1.00797);
+        eleMap.put("H15", 1.00797);
+        eleMap.put("H16", 1.00797);
+        eleMap.put("H17", 1.00797);
+        eleMap.put("H18", 1.00797);
+        eleMap.put("H19", 1.00797);
+        eleMap.put("H20", 1.00797);
+        eleMap.put("H21", 1.00797);
+        eleMap.put("H22", 1.00797);
+        eleMap.put("H23", 1.00797);
+        eleMap.put("H24", 1.00797);
+        eleMap.put("H25", 1.00797);
+        eleMap.put("H26", 1.00797);
+        eleMap.put("H27", 1.00797);
+        eleMap.put("H28", 1.00797);
+        eleMap.put("H29", 1.00797);
+        eleMap.put("H30", 1.00797);
+        eleMap.put("H31", 1.00797);
+        eleMap.put("H32", 1.00797);
+        eleMap.put("H33", 1.00797);
+        eleMap.put("H34", 1.00797);
+        eleMap.put("H35", 1.00797);
+        eleMap.put("H36", 1.00797);
+        eleMap.put("H37", 1.00797);
+        eleMap.put("H38", 1.00797);
+        eleMap.put("H39", 1.00797);
+        eleMap.put("H40", 1.00797);
+        eleMap.put("H41", 1.00797);
+        eleMap.put("H42", 1.00797);
+        eleMap.put("H43", 1.00797);
+        eleMap.put("H44", 1.00797);
+        eleMap.put("H45", 1.00797);
+        eleMap.put("H46", 1.00797);
+        eleMap.put("H47", 1.00797);
+        eleMap.put("H48", 1.00797);
+        eleMap.put("H49", 1.00797);
+        eleMap.put("H50", 1.00797);
         
         
         
