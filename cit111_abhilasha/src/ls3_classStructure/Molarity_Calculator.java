@@ -314,8 +314,7 @@ public class Molarity_Calculator {
 //        eleMap.put("Na14", 321.85678);
 //        eleMap.put("Na15", 344.84655);
 
-<<<<<<< HEAD
-=======
+
         HashMap<String , Double> eleSubMap = new HashMap<>();
         eleMap.put("H1", 1.00797);
         eleMap.put("H2", 2.01594);
@@ -368,10 +367,7 @@ public class Molarity_Calculator {
         eleMap.put("H49", 1.00797);
         eleMap.put("H50", 1.00797);
         
-        
-        
-        
->>>>>>> 54c129d97e12650deae9c2e13db38c5fe1df5992
+
         Pattern a = Pattern.compile("[A-Z][a-z]?[a-z]?\\d?");
         //find the match(element)
         Matcher m = a.matcher(formula);
