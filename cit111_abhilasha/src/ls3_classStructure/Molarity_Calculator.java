@@ -11,26 +11,39 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
  
 /**
- * The calculator computes the molarity of a given solution
+ * The calculator computes the molarity of a given solution.
  * @author abhilasha.raghuwansh
  */
 public class Molarity_Calculator {
     
-
-        
     public static void main(String[] args){
         takeUserInput();
     }//close main
     
-    public static void takeUserInput(){
+    public static void takeUserInput(){ 
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter formula of the Compound");
+        
+        System.out.println("Enter formula of the Chemical Compound");
         String formula = input.next();
         parseFormula(formula);
+        double totalMolarMass = parseFormula(formula);
+
+        System.out.println("Enter the mass of the Chemical Compound being dissolved into water(in grams): ");
+        double mass = input.nextDouble();
+        calcMolesOfSoln(mass, totalMolarMass);
+        double molesOfSoln = calcMolesOfSoln(mass, totalMolarMass);
+        
+        System.out.println("Enter the volume of water in which the Chemical Compound is being dissolved in(in liters): ");
+        double waterVolume = input.nextDouble();
+        calcMolarity(waterVolume, molesOfSoln);
+        double molarity  = calcMolarity(waterVolume, molesOfSoln);
+        
+        printOutput(molarity, formula);
+        
     }//close method takeUserInput
     
     
-    public static void parseFormula(String formula){
+    public static double parseFormula(String formula){
         
         HashMap<String , Double> eleMap = new HashMap<>();
         eleMap.put("H", 1.00797);
@@ -144,39 +157,214 @@ public class Molarity_Calculator {
         eleMap.put("Uun", 269.00);
         eleMap.put("Uuu", 272.00);
         eleMap.put("Uub", 277.00);
+//
+//        HashMap<String, Double> eleSubMap = new HashMap<>();
+//        eleMap.put("H2", 2.01594);
+//        eleMap.put("H3", 3.02391);
+//        eleMap.put("H4", 4.03188);
+//        eleMap.put("H5", 5.03985);
+//        eleMap.put("H6", 6.04782);
+//        eleMap.put("H7", 7.05579);
+//        eleMap.put("H8", 8.06376);
+//        eleMap.put("H9", 9.07173);
+//        eleMap.put("H10", 10.0797);
+//        eleMap.put("H11", 11.0877);
+//        eleMap.put("H12", 12.0956);
+//        eleMap.put("H13", 13.1036);
+//        eleMap.put("H14", 14.1116);
+//        eleMap.put("H15", 15.1196);
+//        eleMap.put("He2", 4.00260);
+//        eleMap.put("He3", 4.00260);
+//        eleMap.put("He4", 4.00260);
+//        eleMap.put("He5", 4.00260);
+//        eleMap.put("He6", 4.00260);
+//        eleMap.put("He7", 4.00260);
+//        eleMap.put("He8", 4.00260);
+//        eleMap.put("He9", 4.00260);
+//        eleMap.put("He10", 4.00260);
+//        eleMap.put("He11", 4.00260);
+//        eleMap.put("He12", 4.00260);
+//        eleMap.put("He13", 4.00260);
+//        eleMap.put("He14", 4.00260);
+//        eleMap.put("He15", 4.00260);
+//        eleMap.put("Li2", 13.882);
+//        eleMap.put("Li3", 20.823);
+//        eleMap.put("Li4", 27.764);
+//        eleMap.put("Li5", 34.705);
+//        eleMap.put("Li6", 41.646);
+//        eleMap.put("Li7", 48.587);
+//        eleMap.put("Li8", 55.528);
+//        eleMap.put("Li9", 62.469);
+//        eleMap.put("Li10", 69.41);
+//        eleMap.put("Li11", 76.351);
+//        eleMap.put("Li12", 83.292);
+//        eleMap.put("Li13", 90.233);
+//        eleMap.put("Li14", 97.174);
+//        eleMap.put("Li15", 104.115);
+//        eleMap.put("Be2", 18.0244);
+//        eleMap.put("Be3", 27.0365);
+//        eleMap.put("Be4", 36.0487);
+//        eleMap.put("Be5", 45.0609);
+//        eleMap.put("Be6", 54.0731);
+//        eleMap.put("Be7", 63.0853);
+//        eleMap.put("Be8", 72.0974);
+//        eleMap.put("Be9", 81.1096);
+//        eleMap.put("Be10", 90.1218);
+//        eleMap.put("Be11", 99.134);
+//        eleMap.put("Be12", 108.146);
+//        eleMap.put("Be13", 117.158);
+//        eleMap.put("Be14", 126.171);
+//        eleMap.put("Be15", 135.183);
+//        eleMap.put("B2", 21.62);
+//        eleMap.put("B3", 32.43);
+//        eleMap.put("B4", 43.24);
+//        eleMap.put("B5", 54.05);
+//        eleMap.put("B6", 64.86);
+//        eleMap.put("B7", 75.67);
+//        eleMap.put("B8", 86.48);
+//        eleMap.put("B9", 97.29);
+//        eleMap.put("B10", 108.1);
+//        eleMap.put("B11", 118.91);
+//        eleMap.put("B12", 129.72);
+//        eleMap.put("B13", 140.53);
+//        eleMap.put("B14", 151.34);
+//        eleMap.put("B15", 162.15);
+//        eleMap.put("C2", 21.62);
+//        eleMap.put("C3", 32.43);
+//        eleMap.put("C4", 43.24);
+//        eleMap.put("C5", 54.05);
+//        eleMap.put("C6", 64.86);
+//        eleMap.put("C7", 75.67);
+//        eleMap.put("C8", 86.48);
+//        eleMap.put("C9", 97.29);
+//        eleMap.put("C10", 108.1);
+//        eleMap.put("C11", 118.91);
+//        eleMap.put("C12", 129.72);
+//        eleMap.put("C13", 140.53);
+//        eleMap.put("C14", 151.34);
+//        eleMap.put("C15", 162.15);
+//        eleMap.put("N2", 21.62);
+//        eleMap.put("N3", 32.43);
+//        eleMap.put("N4", 43.24);
+//        eleMap.put("N5", 54.05);
+//        eleMap.put("N6", 64.86);
+//        eleMap.put("N7", 75.67);
+//        eleMap.put("N8", 86.48);
+//        eleMap.put("N9", 97.29);
+//        eleMap.put("N10", 108.1);
+//        eleMap.put("N11", 118.91);
+//        eleMap.put("N12", 129.72);
+//        eleMap.put("N13", 140.53);
+//        eleMap.put("N14", 151.34);
+//        eleMap.put("N15", 162.15);
+//        eleMap.put("O2", 31.9988);
+//        eleMap.put("O3", 47.9982);
+//        eleMap.put("O4", 63.9976);
+//        eleMap.put("O5", 79.997);
+//        eleMap.put("O6", 95.9964);
+//        eleMap.put("O7", 111.9958);
+//        eleMap.put("O8", 127.9952);
+//        eleMap.put("O9", 143.9946);
+//        eleMap.put("O10", 159.994);
+//        eleMap.put("O11", 175.9934);
+//        eleMap.put("O12", 191.9928);
+//        eleMap.put("O13", 207.9922);
+//        eleMap.put("O14", 223.9916);
+//        eleMap.put("O15", 239.991);
+//        eleMap.put("F2", 37.996806);
+//        eleMap.put("F3", 56.995209);
+//        eleMap.put("F4", 75.993612);
+//        eleMap.put("F5", 94.992015);
+//        eleMap.put("F6", 113.990418);
+//        eleMap.put("F7", 132.988821);
+//        eleMap.put("F8", 151.987224);
+//        eleMap.put("F9", 170.985627);
+//        eleMap.put("F10", 189.98403);
+//        eleMap.put("F11", 208.982433);
+//        eleMap.put("F12", 227.980836);
+//        eleMap.put("F13", 246.979239); 
+//        eleMap.put("F14", 265.977642);
+//        eleMap.put("F15", 284.976045);
+//        eleMap.put("Ne2", 40.358);
+//        eleMap.put("Ne3", 60.537);
+//        eleMap.put("Ne4", 80.716);
+//        eleMap.put("Ne5", 100.895);
+//        eleMap.put("Ne6", 121.074);
+//        eleMap.put("Ne7", 141.253);
+//        eleMap.put("Ne8", 161.432);
+//        eleMap.put("Ne9", 181.611);
+//        eleMap.put("Ne10", 201.79);
+//        eleMap.put("Ne11", 221.969);
+//        eleMap.put("Ne12", 242.148);
+//        eleMap.put("Ne13", 262.327);
+//        eleMap.put("Ne14", 282.506);
+//        eleMap.put("Ne15", 302.685);
+//        eleMap.put("Na2", 45.97954);
+//        eleMap.put("Na3", 68.96931);
+//        eleMap.put("Na4", 91.95908);
+//        eleMap.put("Na5", 114.94885);
+//        eleMap.put("Na6", 137.93862);
+//        eleMap.put("Na7", 160.92839);
+//        eleMap.put("Na8", 183.91816);
+//        eleMap.put("Na9", 206.90793);
+//        eleMap.put("Na10", 229.8977);
+//        eleMap.put("Na11", 252.88747);
+//        eleMap.put("Na12", 275.87724);
+//        eleMap.put("Na13", 298.86701);
+//        eleMap.put("Na14", 321.85678);
+//        eleMap.put("Na15", 344.84655);
 
-        HashMap<String , Double> eleSubMap = new HashMap<>();
-        
-        
-        
-        
-        
         Pattern a = Pattern.compile("[A-Z][a-z]?[a-z]?\\d?");
         //find the match(element)
         Matcher m = a.matcher(formula);
-        double eleAtomicMass = 0;
-            
+        double eleAtomicMass = 0.00;
+        double totalMolarMass = 0.00;
         while(m.find() == true){
+            int number = 1;
+            
             //obtain element from the formula using substring
             String element = formula.substring(m.start(), m.end());
-            System.out.println(element);
             
             //check to see if the element has a subscript
+            
             Pattern b = Pattern.compile("\\d");
             Matcher n = b.matcher(element);
-            if(n.find() == true){
-                
+            n.find();
+            
+            if(n.find()){
+                number = Integer.parseInt(element.substring(n.start(), n.end()));
             }
+            
+            Pattern c = Pattern.compile("[A-Z][a-z]?[a-z]?");
+            Matcher letter = c.matcher(element);
+            letter.find();
+            String symbol = element.substring(letter.start(), letter.end());
+            
             //find the atomic mass of the element
-            eleAtomicMass = eleMap.get(element);
-            System.out.println(eleAtomicMass);
+            eleAtomicMass = eleMap.get(symbol) * number;
             
             //chop off the derived element from the formula
             formula = formula.substring(m.end(), formula.length());
-            System.out.println(formula);
-            
             m = a.matcher(formula);
+            
+            totalMolarMass = totalMolarMass + eleAtomicMass;
         }    
+        return totalMolarMass;
     }// close method parseFormula
     
+    public static double calcMolesOfSoln(double mass, double totalMolarMass){
+        double molesOfSoln = mass * (1 / totalMolarMass);
+        return molesOfSoln;
+    }
+    
+    public static double calcMolarity(double waterVolume, double molesOfSoln){
+        double molarity = molesOfSoln / waterVolume;
+        return molarity;
+    }
+    
+    public static void printOutput(double molarity, String formula){
+        System.out.println("----------------------------------------------------------------------");
+        System.out.println("Molarity of the soultion is:  " + molarity + " M " + formula);
+        System.out.println("----------------------------------------------------------------------");
+    }
 }//close class
