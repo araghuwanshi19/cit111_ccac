@@ -314,100 +314,62 @@ public class Molarity_Calculator {
 //        eleMap.put("Na14", 321.85678);
 //        eleMap.put("Na15", 344.84655);
 
-
-        HashMap<String , Double> eleSubMap = new HashMap<>();
-        eleMap.put("H1", 1.00797);
-        eleMap.put("H2", 2.01594);
-        eleMap.put("H3", 1.00797);
-        eleMap.put("H4", 1.00797);
-        eleMap.put("H5", 1.00797);
-        eleMap.put("H6", 1.00797);
-        eleMap.put("H7", 1.00797);
-        eleMap.put("H8", 1.00797);
-        eleMap.put("H9", 1.00797);
-        eleMap.put("H10", 1.00797);
-        eleMap.put("H11", 1.00797);
-        eleMap.put("H12", 1.00797);
-        eleMap.put("H13", 1.00797);
-        eleMap.put("H14", 1.00797);
-        eleMap.put("H15", 1.00797);
-        eleMap.put("H16", 1.00797);
-        eleMap.put("H17", 1.00797);
-        eleMap.put("H18", 1.00797);
-        eleMap.put("H19", 1.00797);
-        eleMap.put("H20", 1.00797);
-        eleMap.put("H21", 1.00797);
-        eleMap.put("H22", 1.00797);
-        eleMap.put("H23", 1.00797);
-        eleMap.put("H24", 1.00797);
-        eleMap.put("H25", 1.00797);
-        eleMap.put("H26", 1.00797);
-        eleMap.put("H27", 1.00797);
-        eleMap.put("H28", 1.00797);
-        eleMap.put("H29", 1.00797);
-        eleMap.put("H30", 1.00797);
-        eleMap.put("H31", 1.00797);
-        eleMap.put("H32", 1.00797);
-        eleMap.put("H33", 1.00797);
-        eleMap.put("H34", 1.00797);
-        eleMap.put("H35", 1.00797);
-        eleMap.put("H36", 1.00797);
-        eleMap.put("H37", 1.00797);
-        eleMap.put("H38", 1.00797);
-        eleMap.put("H39", 1.00797);
-        eleMap.put("H40", 1.00797);
-        eleMap.put("H41", 1.00797);
-        eleMap.put("H42", 1.00797);
-        eleMap.put("H43", 1.00797);
-        eleMap.put("H44", 1.00797);
-        eleMap.put("H45", 1.00797);
-        eleMap.put("H46", 1.00797);
-        eleMap.put("H47", 1.00797);
-        eleMap.put("H48", 1.00797);
-        eleMap.put("H49", 1.00797);
-        eleMap.put("H50", 1.00797);
-        
-
         Pattern a = Pattern.compile("[A-Z][a-z]?[a-z]?\\d?");
         //find the match(element)
         Matcher m = a.matcher(formula);
         double eleAtomicMass = 0.00;
         double totalMolarMass = 0.00;
+        
         while(m.find() == true){
             int number = 1;
             
             //obtain element from the formula using substring
             String element = formula.substring(m.start(), m.end());
-            
+            System.out.println("element = " + element);
             //check to see if the element has a subscript
             
-            Pattern b = Pattern.compile("\\d");
+           // Pattern b = Pattern.compile("[A-Z][a-z]?[a-z]?\\d+");
+            //Matcher n = b.matcher(element);
+            //n.find();
+            Pattern b = Pattern.compile("[A-Z][a-z]?");
             Matcher n = b.matcher(element);
             n.find();
+            System.out.println("number find = " + n.find());
             
-            if(n.find()){
+            while(n.find() == true){
                 number = Integer.parseInt(element.substring(n.start(), n.end()));
+                System.out.println("Number" + number);
+            
+            
+                Pattern c = Pattern.compile("[A-Z][a-z]?[a-z]?");
+                Matcher letter = c.matcher(element);
+                letter.find();
+                String symbol = element.substring(letter.start(), letter.end());
+                System.out.println("Symbol" + symbol);
+                
+                totalMolarMass = totalMolarMass + eleAtomicMass;
+                System.out.println("number total mass" + totalMolarMass);
+                //find the atomic mass of the element
+                eleAtomicMass = eleMap.get(symbol) * number;
             }
             
-            Pattern c = Pattern.compile("[A-Z][a-z]?[a-z]?");
-            Matcher letter = c.matcher(element);
-            letter.find();
-            String symbol = element.substring(letter.start(), letter.end());
-            
             //find the atomic mass of the element
-            eleAtomicMass = eleMap.get(symbol) * number;
-            
+            eleAtomicMass = eleMap.get(element);
+            System.out.println("eleMass" + eleAtomicMass);
             //chop off the derived element from the formula
             formula = formula.substring(m.end(), formula.length());
             m = a.matcher(formula);
             
-            totalMolarMass = totalMolarMass + eleAtomicMass;
+            //totalMolarMass = totalMolarMass + eleAtomicMass;
+            //System.out.println("total mass" + totalMolarMass);
         }    
+         totalMolarMass = totalMolarMass + eleAtomicMass;
+         System.out.println("total mass" + totalMolarMass);
         return totalMolarMass;
     }// close method parseFormula
     
     public static double calcMolesOfSoln(double mass, double totalMolarMass){
-        double molesOfSoln = mass * (1 / totalMolarMass);
+        double molesOfSoln = mass * (1 / totalMolarMass); 
         return molesOfSoln;
     }
     
