@@ -25,17 +25,17 @@ public class Molarity_Calculator {
         
         System.out.println("Enter formula of the Chemical Compound");
         String formula = input.next();
-        parseFormula(formula);
+//        parseFormula(formula);
         double totalMolarMass = parseFormula(formula);
 
         System.out.println("Enter the mass of the Chemical Compound being dissolved into water(in grams): ");
         double mass = input.nextDouble();
-        calcMolesOfSoln(mass, totalMolarMass);
+//        calcMolesOfSoln(mass, totalMolarMass);
         double molesOfSoln = calcMolesOfSoln(mass, totalMolarMass);
         
         System.out.println("Enter the volume of water in which the Chemical Compound is being dissolved in(in liters): ");
         double waterVolume = input.nextDouble();
-        calcMolarity(waterVolume, molesOfSoln);
+//        calcMolarity(waterVolume, molesOfSoln);
         double molarity  = calcMolarity(waterVolume, molesOfSoln);
         
         printOutput(molarity, formula);
@@ -314,7 +314,7 @@ public class Molarity_Calculator {
 //        eleMap.put("Na14", 321.85678);
 //        eleMap.put("Na15", 344.84655);
 
-        Pattern a = Pattern.compile("[A-Z][a-z]?[a-z]?\\d?");
+        Pattern a = Pattern.compile("[A-Z][a-z]?[a-z]?\\d?\\d?");
         //find the match(element)
         Matcher m = a.matcher(formula);
         double eleAtomicMass = 0.00;
@@ -331,15 +331,13 @@ public class Molarity_Calculator {
            // Pattern b = Pattern.compile("[A-Z][a-z]?[a-z]?\\d+");
             //Matcher n = b.matcher(element);
             //n.find();
-            Pattern b = Pattern.compile("[A-Z][a-z]?");
+            Pattern b = Pattern.compile("\\d+");
             Matcher n = b.matcher(element);
-            n.find();
-            System.out.println("number find = " + n.find());
             
-            while(n.find() == true){
+            if(n.find() == true){
                 number = Integer.parseInt(element.substring(n.start(), n.end()));
                 System.out.println("Number" + number);
-            
+            }
             
                 Pattern c = Pattern.compile("[A-Z][a-z]?[a-z]?");
                 Matcher letter = c.matcher(element);
@@ -347,23 +345,20 @@ public class Molarity_Calculator {
                 String symbol = element.substring(letter.start(), letter.end());
                 System.out.println("Symbol" + symbol);
                 
+                eleAtomicMass = eleMap.get(symbol) * number;
                 totalMolarMass = totalMolarMass + eleAtomicMass;
                 System.out.println("number total mass" + totalMolarMass);
                 //find the atomic mass of the element
-                eleAtomicMass = eleMap.get(symbol) * number;
-            }
+               
             
             //find the atomic mass of the element
-            eleAtomicMass = eleMap.get(element);
-            System.out.println("eleMass" + eleAtomicMass);
+            eleAtomicMass = eleMap.get(symbol);
+            
             //chop off the derived element from the formula
             formula = formula.substring(m.end(), formula.length());
             m = a.matcher(formula);
             
-            //totalMolarMass = totalMolarMass + eleAtomicMass;
-            //System.out.println("total mass" + totalMolarMass);
         }    
-         totalMolarMass = totalMolarMass + eleAtomicMass;
          System.out.println("total mass" + totalMolarMass);
         return totalMolarMass;
     }// close method parseFormula
