@@ -11,7 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
  
 /**
- * The calculator computes the molarity of a given solution.
+ * The calculator computes the molarity of a given solution given that that solvent is water.
  * @author abhilasha.raghuwansh
  */
 public class Molarity_Calculator {
@@ -25,17 +25,14 @@ public class Molarity_Calculator {
         
         System.out.println("Enter formula of the Chemical Compound");
         String formula = input.next();
-//        parseFormula(formula);
         double totalMolarMass = parseFormula(formula);
 
         System.out.println("Enter the mass of the Chemical Compound being dissolved into water(in grams): ");
         double mass = input.nextDouble();
-//        calcMolesOfSoln(mass, totalMolarMass);
         double molesOfSoln = calcMolesOfSoln(mass, totalMolarMass);
         
         System.out.println("Enter the volume of water in which the Chemical Compound is being dissolved in(in liters): ");
         double waterVolume = input.nextDouble();
-//        calcMolarity(waterVolume, molesOfSoln);
         double molarity  = calcMolarity(waterVolume, molesOfSoln);
         
         printOutput(molarity, formula);
