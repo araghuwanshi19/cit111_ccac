@@ -8,7 +8,8 @@ package Final;
 import java.util.Scanner;
 
 /**
- *
+ *Consists of 15 instances of elements (Hydrogen - Phosphorus) and makes computations to find whether the two elements picked by the user can form an ionic bond.
+ * 
  * @author abhilasha.raghuwansh
  */
 public class ElementLand {

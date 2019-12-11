@@ -6,7 +6,8 @@
 package Final;
 
 /**
- *
+ *Declares all characteristics of a compound's formula needed to run this project and ensures that the chemical formula of the compound is correct and can be comprehended.
+ * 
  * @author abhilasha.raghuwansh
  */
 public class Compound {

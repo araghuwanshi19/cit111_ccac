@@ -6,7 +6,8 @@
 package Final;
 
 /**
- *
+ * Declares all characteristics of the object element
+ * 
  * @author abhilasha.raghuwansh
  */
 public class Element {
