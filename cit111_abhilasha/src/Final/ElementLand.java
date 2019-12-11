@@ -5,24 +5,30 @@
  */
 package Final;
 
+import java.util.Scanner;
+
 /**
  *
  * @author abhilasha.raghuwansh
  */
-public class bondElements {
+public class ElementLand {
     
     public static void main (String[] args){
         
-        Element hydrogen = new Element();
-        hydrogen.name = "Hydrogen";
-        hydrogen.symbol = "H";
-        hydrogen.atomicNumber = 1;
-        hydrogen.atomicMass = 1.008;
-        hydrogen.meltingPoint = -259.14; //in celcius
-        hydrogen.boilingPoint = -252.87;
-        hydrogen.density = 0.0000899; // in g/cm^3
-        hydrogen.color = "Colorless";
-        hydrogen.ionCharge = +1;
+        Element[] elements = new Element[110];
+        
+        Element temp = new Element();
+        temp.name = "Hydrogen";
+        temp.symbol = "H";
+        temp.atomicNumber = 1;
+        temp.atomicMass = 1.008;
+        temp.meltingPoint = -259.14; //in celcius
+        temp.boilingPoint = -252.87;
+        temp.density = 0.0000899; // in g/cm^3
+        temp.color = "Colorless";
+        temp.ionCharge = +1;
+        temp.printElementProperties();
+        elements[1] = temp;
         
         Element helium = new Element();
         helium.name = "Helium";
@@ -34,6 +40,8 @@ public class bondElements {
         helium.density = 0.0001785; // in g/cm^3
         helium.color = "Colorless";
         helium.ionCharge = 0;
+        helium.printElementProperties();
+        elements[2] = helium;
         
         Element lithium = new Element();
         lithium.name = "Lithium";
@@ -45,6 +53,8 @@ public class bondElements {
         lithium.density = 0.535; // in g/cm^3
         lithium.color = "Silver";
         lithium.ionCharge = +1;
+        lithium.printElementProperties();
+        elements[3] = lithium;
         
         Element beryllium = new Element();
         beryllium.name = "Beryllium";
@@ -56,6 +66,8 @@ public class bondElements {
         beryllium.density = 1.848; // in g/cm^3
         beryllium.color = "Slate gray";
         beryllium.ionCharge = +2;
+        beryllium.printElementProperties();
+        elements[4] = beryllium;
         
         Element boron = new Element();
         boron.name = "Boron";
@@ -66,7 +78,9 @@ public class bondElements {
         boron.boilingPoint = 4000;
         boron.density = 2.46; // in g/cm^3
         boron.color = "Black";
-        boron.ionCharge = 0 ;
+        boron.ionCharge = 0;
+        boron.printElementProperties();
+        elements[5] = boron;
         
         Element carbon = new Element();
         carbon.name = "Carbon";
@@ -78,6 +92,8 @@ public class bondElements {
         carbon.density = 2.26; // in g/cm^3 (in case of activated charcoal)
         carbon.color = "Black";
         carbon.ionCharge = 0;
+        carbon.printElementProperties();
+        elements[6] = carbon;
         
         Element nitrogen = new Element();
         nitrogen.name = "Nitrogen";
@@ -89,6 +105,8 @@ public class bondElements {
         nitrogen.density = 0.001251; // in g/cm^3
         nitrogen.color = "Colorless";
         nitrogen.ionCharge = -3;
+        nitrogen.printElementProperties();
+        elements[7] = nitrogen;
         
         Element oxygen = new Element();
         oxygen.name = "Oxygen";
@@ -100,6 +118,8 @@ public class bondElements {
         oxygen.density = 0.001429; // in g/cm^3
         oxygen.color = "Colorless";
         oxygen.ionCharge = -2;
+        oxygen.printElementProperties();
+        elements[8] = oxygen;
         
         Element fluorine = new Element();
         fluorine.name = "Fluorine";
@@ -111,6 +131,8 @@ public class bondElements {
         fluorine.density = 0.001696; // in g/cm^3
         fluorine.color = "Colorless";
         fluorine.ionCharge = -1;
+        fluorine.printElementProperties();
+        elements[9] = fluorine;
         
         Element neon = new Element();
         neon.name = "Neon";
@@ -122,6 +144,8 @@ public class bondElements {
         neon.density = 0.0009; // in g/cm^3
         neon.color = "Colorless";
         neon.ionCharge = 0;
+        neon.printElementProperties();
+        elements[10] = neon;
         
         Element sodium = new Element();
         sodium.name = "Sodium";
@@ -133,6 +157,8 @@ public class bondElements {
         sodium.density = 0.968; // in g/cm^3
         sodium.color = "Silver";
         sodium.ionCharge = +1;
+        sodium.printElementProperties();
+        elements[11] = sodium;
         
         Element magnesium = new Element();
         magnesium.name = "Magnesium";
@@ -144,28 +170,33 @@ public class bondElements {
         magnesium.density = 1.738; // in g/cm^3
         magnesium.color = "Silver";
         magnesium.ionCharge = +2;
+        magnesium.printElementProperties();
+        elements[12] = magnesium;
         
-        Element aluminium = new Element();
-        aluminium.name = "Aluminium";
-        aluminium.symbol = "Al";
-        aluminium.atomicNumber = 13;
-        aluminium.atomicMass = 26.9815385;
-        aluminium.meltingPoint = 660.32; //in celcius
-        aluminium.boilingPoint = 2519;
-        aluminium.density = 2.7; // in g/cm^3
-        aluminium.color = "Silver";
-        aluminium.ionCharge = +3;
+        Element aluminum = new Element();
+        aluminum.name = "Aluminium";
+        aluminum.symbol = "Al";
+        aluminum.atomicNumber = 13;
+        aluminum.atomicMass = 26.9815385;
+        aluminum.meltingPoint = 660.32; //in celcius
+        aluminum.boilingPoint = 2519;
+        aluminum.density = 2.7; // in g/cm^3
+        aluminum.color = "Silver";
+        aluminum.ionCharge = +3;
+        aluminum.printElementProperties();
+        elements[13] = aluminum;
         
         Element silicon = new Element();
         silicon.name = "Silicon";
         silicon.symbol = "Si";
-        silicon.atomicNumber = 14;
         silicon.atomicMass = 28.085;
         silicon.meltingPoint = 1414; //in celcius
         silicon.boilingPoint = 2900;
         silicon.density = 2.33; // in g/cm^3
         silicon.color = "Gray";
         silicon.ionCharge = 0;
+        silicon.printElementProperties();
+        elements[14] = silicon;
         
         Element phosphorus = new Element();
         phosphorus.name = "Phosphorus";
@@ -177,28 +208,72 @@ public class bondElements {
         phosphorus.density = 1.823; // in g/cm^3 (white phosphorus)
         phosphorus.color = "Colorless";
         phosphorus.ionCharge = -3;
+        phosphorus.printElementProperties();
+        elements[15] = phosphorus;
         
-        
-        int[] eleIonCharge = new int[15];
-        eleIonCharge[0] = +1;
-        eleIonCharge[1] = 0;
-        eleIonCharge[2] = +1;
-        eleIonCharge[3] = +2;
-        eleIonCharge[4] = 0;
-        eleIonCharge[5] = 0;
-        eleIonCharge[6] = -3;
-        eleIonCharge[7] = -2;
-        eleIonCharge[8] = -1;
-        eleIonCharge[9] = 0;
-        eleIonCharge[10] = +1;
-        eleIonCharge[11] = +2;
-        eleIonCharge[12] = +3;
-        eleIonCharge[13] = 0;
-        eleIonCharge[14] = -3;
-        
-        
+        takeUserInput(elements);
     } //close main method
     
     
+    public static void takeUserInput(Element[] elements){
+        
+        Scanner input = new Scanner(System.in);
+        Scanner loop = new Scanner(System.in);
+        
+        int counter = 1;
+        System.out.println("Choose the first element that you wish to check for a bond:");
+
+        while(counter <= 15){
+            System.out.println(counter + ". " + elements[counter].name);
+            counter++;
+        }
+
+        Element ele1 = elements[input.nextInt()];
+
+        System.out.println("Choose the second element that you wish to check for a bond:");
+
+        Element ele2 = elements[input.nextInt()];
+
+        computeBonding(ele1, ele2);
+
+    } //close takeUserInput
+    
+    
+    public static void computeBonding(Element ele1, Element ele2){
+       
+        if((ele1.ionCharge < 0 && ele2.ionCharge >= 0) || (ele1.ionCharge >= 0 && ele2.ionCharge < 0)){
+            
+            if( Math.abs(ele1.ionCharge) ==  Math.abs(ele2.ionCharge)){
+                Compound compound = new Compound();
+                compound.element1 = ele1.name;
+                compound.element2 = ele2.name;
+                compound.element1Symbol = ele1.symbol;
+                compound.element2Symbol = ele2.symbol;
+                compound.countElement1 = 1;
+                compound.countElement2 = 1;
+                
+                System.out.println("The two elements bond to form the compound: " + ele1.symbol + ele2.symbol);
+            }
+            
+            else{
+                int ionCharge1 = ele1.ionCharge;
+                int ionCharge2 = ele2.ionCharge;
+                int lcm  = (ionCharge1 * ionCharge2);
+                Compound compound = new Compound();
+                compound.element1 = ele1.name;
+                compound.element2 = ele2.name;
+                compound.element1Symbol = ele1.symbol;
+                compound.element2Symbol = ele2.symbol;
+                compound.countElement1 = (lcm / ionCharge1);
+                compound.countElement2 = (lcm / ionCharge2);
+                
+                System.out.println("The two elements bond to form the compound: " + compound.toString());
+            }
+        }
+        
+        else{
+            System.out.println("The two elements cannot form a chemical bond");
+        }
+    }// close copmuteBonding method
     
 } //close class

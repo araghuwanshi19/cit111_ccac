@@ -22,11 +22,12 @@ public class Element {
     public int ionCharge;
     public int unpairedElectrons;
     
-    public static void bondElements(){
-        
-    }// close bondElements method
+    
+    
+    
     
     public void printElementProperties(){
+        
         System.out.println("---------------------------------------------------");
         System.out.println("Element name: " + this.name);
         System.out.println("Element symbol: " + this.symbol);
